@@ -12,7 +12,7 @@ function NarrowItDownController(MenuSearchService) {
   var narrow = this;
 
   narrow.searchButton = function () {
-    if (narrow.searchText === '') {
+    if (narrow.searchText === '' || narrow.searchText === undefined) {
       narrow.nothingFound = true;
     } else {
       MenuSearchService.getMatchedMenuItems(narrow.searchText).then(function (filteredItems) {
