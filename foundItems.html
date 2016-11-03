@@ -1,10 +1,11 @@
 <div>
+    <h3 ng-if='displayItems.length === 0'>Nothing found</h3>
     <table ng-if='displayItems.length > 0'>
     <tr>
-      <th>name</th>
-      <th>short name</th>
-      <th>description</th>
-      <th>remove</th>
+      <th>Name</th>
+      <th>Short name</th>
+      <th>Description</th>
+      <th>Remove</th>
     </tr>
     <tr ng-repeat='item in displayItems'>
       <td>{{ item.name }}</td>

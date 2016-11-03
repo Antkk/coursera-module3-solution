@@ -10,6 +10,7 @@ input[type="text"] {
   margin-left: 10px;
 }
 .table {
+  width: 100%;
   border-collapse: collapse;
 }
 .btn-remove {
@@ -19,10 +20,12 @@ th {
   text-align: center;
   vertical-align: baseline;
   border: 1px solid black;
+  padding: 0px 7px;
 }
 td {
   vertical-align: middle;
   border: 1px solid black;
+  padding: 0px 7px;
 }
 .text-center {
   text-align: center;
