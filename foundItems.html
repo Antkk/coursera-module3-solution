@@ -1,0 +1,20 @@
+<div>
+    <table ng-if='displayItems.length > 0'>
+    <tr>
+      <th>name</th>
+      <th>short name</th>
+      <th>description</th>
+      <th>remove</th>
+    </tr>
+    <tr ng-repeat='item in displayItems'>
+      <td>{{ item.name }}</td>
+      <td class='text-center'>{{ item.short_name }}</td>
+      <td>{{ item.description }}</td>
+      <td class='text-center'>
+        <button class='btn-remove' ng-click='onRemove($index)'>
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

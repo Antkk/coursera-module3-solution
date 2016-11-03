@@ -4,6 +4,7 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
+.directive('foundItems', FoundItems)
 .constant('ApiPath', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
 NarrowItDownController.$inject = ['MenuSearchService'];
@@ -15,6 +16,22 @@ function NarrowItDownController(MenuSearchService) {
       narrow.displayItems = filteredItems;
     });
   }
+
+  narrow.removeItem = function (index) {
+    narrow.displayItems.splice(index, 1);
+  }
+}
+
+function FoundItems() {
+  var ddo = {
+    restrict: 'E',
+    scope: {
+      displayItems: '<',
+      onRemove: '='
+    },
+    templateUrl: 'foundItems.html'
+  }
+  return ddo;
 }
 
 MenuSearchService.$inject = ['$http', 'ApiPath'];

@@ -9,6 +9,24 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.table {
+  border-collapse: collapse;
+}
+.btn-remove {
+  margin: 3px;
+}
+th {
+  text-align: center;
+  vertical-align: baseline;
+  border: 1px solid black;
+}
+td {
+  vertical-align: middle;
+  border: 1px solid black;
+}
+.text-center {
+  text-align: center;
+}
 .loader {
   display: none;
   margin-left: 5px;

@@ -18,25 +18,9 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click='narrow.searchButton()'>Narrow It Down For Me!</button>
     </div>
+    <br style="clear:both" />
 
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
-
-    <br />
-    <br />
-    <br />
-    <table ng-if='narrow.displayItems.length > 0'>
-      <tr>
-        <th>name</th>
-        <th>short name</th>
-        <th>description</th>
-      </tr>
-      <tr ng-repeat='item in narrow.displayItems'>
-        <td>{{ item.name }}</td>
-        <td>{{ item.short_name }}</td>
-        <td>{{ item.description }}</td>
-      </li>
-    </table>
+    <found-items display-items='narrow.displayItems' on-remove="narrow.removeItem"></found-items>
   </div>
 
 </body>
