@@ -12,13 +12,23 @@ function NarrowItDownController(MenuSearchService) {
   var narrow = this;
 
   narrow.searchButton = function () {
-    MenuSearchService.getMatchedMenuItems(narrow.searchText).then(function (filteredItems) {
-      narrow.displayItems = filteredItems;
-    });
+    if (narrow.searchText === '') {
+      narrow.nothingFound = true;
+    } else {
+      MenuSearchService.getMatchedMenuItems(narrow.searchText).then(function (filteredItems) {
+        narrow.displayItems = filteredItems;
+        if (narrow.displayItems.length === 0) {
+          narrow.nothingFound = true;
+        } else {
+          narrow.nothingFound = false;
+        }
+      });
+    }
   }
 
   narrow.removeItem = function (index) {
     narrow.displayItems.splice(index, 1);
+    narrow.nothingFound = narrow.displayItems.length === 0;
   }
 }
 
@@ -27,7 +37,8 @@ function FoundItems() {
     restrict: 'E',
     scope: {
       displayItems: '<',
-      onRemove: '='
+      onRemove: '=',
+      nothingFound: '<'
     },
     templateUrl: 'foundItems.html'
   }

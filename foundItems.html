@@ -1,6 +1,6 @@
 <div>
-    <h3 ng-if='displayItems.length === 0'>Nothing found</h3>
-    <table ng-if='displayItems.length > 0'>
+    <h3 ng-if='nothingFound'>Nothing found</h3>
+    <table ng-if='displayItems.length > 0 && !nothingFound'>
     <tr>
       <th>Name</th>
       <th>Short name</th>
